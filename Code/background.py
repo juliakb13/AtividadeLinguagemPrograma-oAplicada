@@ -1,12 +1,16 @@
 import pygame
-from entity import Entity
+from .entity import Entity
 
 
 class Background(Entity):
-    """Background entity representing the game scenery."""
 
-    def __init__(self, name: str, surf: pygame.Surface, rect: pygame.Rect):
-        super().__init__(name, surf, rect)
 
-    def move(self) -> None:
+    def __init__(self, name: str, position: tuple):
+        super().__init__(name, position)
+
+    def move(self):
+        self.rect.centerx -= 1
+        if self.rect.right <= 0:
+            self.rect.left = 576
         pass
+

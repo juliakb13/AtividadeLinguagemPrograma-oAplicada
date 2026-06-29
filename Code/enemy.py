@@ -1,12 +1,11 @@
 import pygame
-from entity import Entity
+from .entity import Entity
 
 
 class Enemy(Entity):
-    """Enemy entity controlled by the game."""
 
-    def __init__(self, name: str, surf: pygame.Surface, rect: pygame.Rect):
-        super().__init__(name, surf, rect)
+    def __init__(self, name: str, position:tuple):
+        super().__init__(name, position)
 
-    def move(self) -> None:
+    def move(self,):
         pass

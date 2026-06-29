@@ -1,17 +1,23 @@
 import pygame
 from typing import List
-from entity import Entity
-from entity_factory import EntityFactory
+from Code.entity import Entity
+from Code.entity_factory import EntityFactory
 
 
 class Level:
-    """Represents a game level that owns a list of entities."""
 
-    def __init__(self, window: pygame.Surface, name: str):
-        self.window: pygame.Surface = window
-        self.name: str = name
-        self.entity_list: List[Entity] = []
-        self._factory: EntityFactory = EntityFactory()
 
-    def run(self) -> None:
+    def __init__(self, window, name, menu_option):
+        self.window = window
+        self.name = name
+        self.entity_list: list[Entity] = []
+        self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+
+
+    def run(self):
+        while True:
+            for ent in self.entity_list:
+                self.window.blit(source=ent.surf, dest=ent.rect)
+                ent.move()
+            pygame.display.flip()
         pass
