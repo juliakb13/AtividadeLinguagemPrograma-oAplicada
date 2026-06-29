@@ -17,5 +17,12 @@ class EntityFactory:
 
                 return list_bg
 
+            case 'Player':
+                return Player('boneco1', (80, 210))
+                #                         ↑ nome do arquivo    ↑ posição inicial
 
+
+            case 'Obstacle':
+                return Enemy('obstaculo', (576, 210))
+                #                          ↑ nome do arquivo   ↑ começa fora da tela à direita
 
